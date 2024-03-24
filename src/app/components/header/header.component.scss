@@ -1,0 +1,56 @@
+@import "../../../styles.scss";
+
+.header {
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-primary-light, 0.8), 
+        rgba($color-primary-dark, 0.8)), 
+        url('../../../assets/background.webp');
+    background-position: top;
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 75%);
+    height: 95vh;
+    position: relative;
+
+
+    // .header__logo-box
+    &__logo-box {
+        left: 4rem;
+        position: absolute;
+        top: 4rem;
+    }
+
+    &__logo {
+        height: 6rem;
+    }
+
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+    margin-bottom: 6rem;
+
+    &--main {
+        display: inline-block;
+        font-size: 5rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+        animation: moveInLeft 1.5s;
+    }
+
+    &--secondary {
+        display: inline-block;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 1.5rem;
+        animation: moveInRight 1.5s;
+    }
+}
