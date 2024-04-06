@@ -1,13 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
-
 // Color Scheme
+
+:root {
+    --color-primary: #55c57a;
+    --color-primary-light: #7ed56f;
+    --color-primary-dark: #28b485;
+    --color-black: #777;
+    --color-grey-light-1: #f7f7f7;
+    --color-grey-dark: #777;
+    --color-white: #fff;
+}
+
 $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
 
-$color-black: #777;
-$color-grey-dark: #777;
-$color-white: #fff;
 
 // Browser reset for all HTML elements
 *, *::after, *::before {
@@ -27,7 +34,96 @@ body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     line-height: 1.7;
-    color: $color-grey-dark;
+    color: var(--color-grey-dark);
+}
+
+// GENERIC CLASSES
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.row {
+    flex: 1;
+    display: flex;
+    max-width: 114rem;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+}
+
+.col {
+    flex: 1;
+    // background-color: black;
+}
+
+.heading-primary {
+    color: var(--color-white);
+    text-transform: uppercase;
+    margin-bottom: 6rem;
+
+    &--main {
+        display: inline-block;
+        font-size: 5rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+        animation: moveInLeft 1.5s;
+    }
+
+    &--secondary {
+        display: inline-block;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 1.5rem;
+        animation: moveInRight 1.5s;
+    }
+}
+
+.heading-secondary { 
+    display: inline-block;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 2px;
+    transition: all .5s;
+
+    &:hover {
+        transform: scale(1.05);
+        text-shadow: .5rem 1rem 2rem rgba(black, .1);
+    }
+}
+
+.heading-tertiary {
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.paragraph {
+    font-size: 1.6rem;
+    
+    &:not(:last-child) {
+        margin-bottom: 3rem;
+    }
+}
+
+.center-text {
+    text-align: center;
+}
+
+.margin-bottom-big {
+    margin-bottom: 8rem;
+}
+
+.margin-bottom-medium {
+    margin-bottom: 4rem;
+}
+
+.margin-bottom-small {
+    margin-bottom: 1.5rem;
 }
 
 // CUSTOM BUTTONS
@@ -46,7 +142,7 @@ body {
     
     &:hover {
         transform: translateY(-0.3rem);
-        box-shadow: 0 1rem 2rem rgba($color-black, $alpha: 0.2);
+        box-shadow: 0 1rem 2rem rgba(var(--color-black), $alpha: 0.2);
 
         &::after {
             transform: scale(1.5);
@@ -56,7 +152,7 @@ body {
     
     &:active {
         transform: translateY(-.1rem);
-        box-shadow: 0 .5rem 1rem rgba($color-black, $alpha: 0.2);
+        box-shadow: 0 .5rem 1rem rgba(var(--color-black), $alpha: 0.2);
     }
     
     &::after {
@@ -74,8 +170,8 @@ body {
     
     
     &--white {
-        background-color: $color-white;
-        color: $color-grey-dark;
+        background-color: var(--color-white);
+        color: var(--color-grey-dark);
 
         &::after {
             background-color: white;
@@ -84,6 +180,34 @@ body {
     
     &--animated {
         animation: moveInUp 1s;
+    }
+}
+
+.btn-text {
+
+    &:link, &:visited{
+        font-size: 1.6rem;
+        color: var(--color-primary);
+        display: inline-block;
+        text-decoration: none;
+        // border-bottom: 1px solid var(--color-primary);
+        padding: 3px;
+        transition: all 0.5s;
+    }
+
+    &:hover{
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        box-shadow: 0 1rem 2rem rgba(var(--color-black), .15);
+        border-radius: 100px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        transform: translatey(-2px);
+    }
+
+    &:active {
+        box-shadow: 0 .5rem 1rem rgba(var(--color-black), .15);
+        transform: translateY(0);
     }
 }
 
