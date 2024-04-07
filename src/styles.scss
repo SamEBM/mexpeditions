@@ -5,6 +5,10 @@
     --color-primary: #55c57a;
     --color-primary-light: #7ed56f;
     --color-primary-dark: #28b485;
+    --color-secondary-light: #ffb900;
+    --color-secondary-dark: #ff7730;
+    --color-tertiary-light: #2998ff;
+    --color-tertiary-dark: #5643fa;
     --color-black: #777;
     --color-grey-light-1: #f7f7f7;
     --color-grey-dark: #777;
@@ -14,6 +18,10 @@
 $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
 
 
 // Browser reset for all HTML elements
@@ -45,6 +53,7 @@ body {
 
 .row {
     flex: 1;
+    flex-wrap: wrap;
     display: flex;
     max-width: 114rem;
     justify-content: center;
@@ -114,6 +123,14 @@ body {
     text-align: center;
 }
 
+.margin-top-big {
+    margin-top: 8rem;
+}
+
+.margin-top-huge {
+    margin-top: 10rem;
+}
+
 .margin-bottom-big {
     margin-bottom: 8rem;
 }
@@ -175,6 +192,15 @@ body {
 
         &::after {
             background-color: white;
+        }
+    }
+
+    &--green {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+
+        &::after {
+            background-color: var(--color-primary);
         }
     }
     
