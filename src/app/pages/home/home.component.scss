@@ -337,3 +337,9 @@
         object-fit: cover;
     }
 }
+
+// BOOK SECTION
+.section-book {
+    padding: 15rem 0;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+}

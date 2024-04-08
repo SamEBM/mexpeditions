@@ -12,6 +12,7 @@
     --color-black: #777;
     --color-grey-light-1: #f7f7f7;
     --color-grey-dark: #777;
+    --color-grey-dark-2: #999;
     --color-white: #fff;
 }
 
@@ -120,33 +121,33 @@ body {
 }
 
 .center-text {
-    text-align: center;
+    text-align: center !important;
 }
 
 .margin-top-big {
-    margin-top: 8rem;
+    margin-top: 8rem !important;
 }
 
 .margin-top-huge {
-    margin-top: 10rem;
+    margin-top: 10rem !important;
 }
 
 .margin-bottom-big {
-    margin-bottom: 8rem;
+    margin-bottom: 8rem !important;
 }
 
 .margin-bottom-medium {
-    margin-bottom: 4rem;
+    margin-bottom: 4rem !important;
 }
 
 .margin-bottom-small {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem !important;
 }
 
 // CUSTOM BUTTONS
 
 .btn {
-    &:link, &:visited {
+    &:link, &:visited, & {
         text-decoration: none;
         text-transform: uppercase;
         padding: 1.5rem 4rem;
@@ -155,6 +156,10 @@ body {
         transition: all .2s;
         position: relative;
         font-size: 1.4rem;
+
+        // Required by <button> elements
+        border: none;
+        cursor: pointer;
     }
     
     &:hover {
