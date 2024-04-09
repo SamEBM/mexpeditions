@@ -27,6 +27,38 @@ $color-tertiary-light: #2998ff;
 $color-tertiary-dark: #5643fa;
 
 
+// Media Query Manager
+// 0 600px -> Phone
+// 600px 900px -> Tablet portrait
+// 900px 1200px -> Tablet landscape
+// [1200px - 1800px] -> Normal styles
+// +1800px -> Big desktop
+
+/*
+    $breakpoint argument choices:
+    - phone
+    - tab-port
+    - tab-land
+    - big-desktop
+*/
+
+// 1em = 16px
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) { @content };    //600px
+    }
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) { @content };     //900px
+    }
+    @if $breakpoint == tab-land {
+        @media (max-width: 75em) { @content };    //1200px
+    }
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) { @content };    //1800px
+    }
+}
+
 // Browser reset for all HTML elements
 *, *::after, *::before {
     margin: 0;
@@ -35,7 +67,20 @@ $color-tertiary-dark: #5643fa;
 }
 
 html {
+    // This defines what 1rem is
     font-size: 62.5%; // By default browser has a font-size of 16px, 62.5 is equal to 10px
+
+    @include respond(tab-land){
+        font-size: 56.25; // 9px
+    }
+
+    @include respond(tab-port){
+        font-size: 50%; // 8px
+    }
+
+    @include respond(big-desktop){
+        font-size: 75%; // 12px
+    }
 }
 
 body {
@@ -46,6 +91,10 @@ body {
     font-weight: 400;
     line-height: 1.7;
     color: var(--color-grey-dark);
+
+    @include respond(tab-port){
+        padding: 0;
+    }
 }
 
 // GENERIC CLASSES
@@ -66,7 +115,11 @@ body {
 
 .col {
     flex: 1;
-    // background-color: black;
+
+    @include respond(tab-port){
+        font-size: 3rem;
+        width: 100%;
+    }
 }
 
 .heading-primary {
@@ -80,6 +133,15 @@ body {
         font-weight: 400;
         letter-spacing: 3.5rem;
         animation: moveInLeft 1.5s;
+
+        @include respond(phone){
+            letter-spacing: .5rem;
+            font-size: 4.5rem;
+        }
+
+        @include respond(tab-port){
+            letter-spacing: 1rem;
+        }
     }
 
     &--secondary {
@@ -88,6 +150,10 @@ body {
         font-weight: 700;
         letter-spacing: 1.5rem;
         animation: moveInRight 1.5s;
+
+        @include respond(phone){
+            letter-spacing: .5rem;
+        }
     }
 }
 
@@ -105,6 +171,21 @@ body {
     &:hover {
         transform: scale(1.05);
         text-shadow: .5rem 1rem 2rem rgba(black, .1);
+    }
+
+    @include respond(tab-port){
+        font-size: 3rem;
+        width: 50%;
+    }
+
+    @include respond(tab-land){
+        font-size: 3rem;
+        width: 60%;
+    }
+
+    @include respond(phone){
+        font-size: 2.5rem;
+        width: 60%;
     }
 }
 
